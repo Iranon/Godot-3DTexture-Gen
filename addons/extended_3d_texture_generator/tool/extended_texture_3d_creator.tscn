@@ -1,0 +1,378 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/extended_3d_texture_generator/tool/extended_texture_3d_creator.gd" type="Script" id=1]
+[ext_resource path="res://addons/extended_3d_texture_generator/tool/noise_shaders/p_noise.shader" type="Shader" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/tile_factor = Vector2( 1, 1 )
+shader_param/seed = 0.0
+shader_param/size = 2.0
+shader_param/octaves = 3.0
+shader_param/persistence = 0.5
+shader_param/lacunarity = 0.5
+shader_param/contrast = 1.0
+shader_param/brightness = 0.0
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Preview")
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0.321569 )
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="Image" id=6]
+data = {
+"data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
+"format": "LumAlpha8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id=5]
+flags = 4
+flags = 4
+image = SubResource( 6 )
+size = Vector2( 16, 16 )
+
+[node name="Texture3DCreator" type="WindowDialog"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 375.5
+margin_top = 129.0
+margin_right = -375.5
+margin_bottom = -129.0
+window_title = "Generate 3D Texture"
+resizable = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Preview" type="Viewport" parent="."]
+size = Vector2( 128, 128 )
+own_world = true
+handle_input_locally = false
+hdr = false
+usage = 0
+render_target_update_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="Preview"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Render" type="Viewport" parent="."]
+own_world = true
+hdr = false
+usage = 0
+render_target_update_mode = 0
+
+[node name="ColorRect" type="ColorRect" parent="Render"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 18.0
+margin_top = 12.0
+margin_right = -18.0
+margin_bottom = -11.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+margin_right = 237.0
+margin_bottom = 21.0
+size_flags_vertical = 3
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Settings" type="Label" parent="VBoxContainer"]
+margin_top = 25.0
+margin_right = 237.0
+margin_bottom = 39.0
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.75
+custom_styles/normal = SubResource( 3 )
+text = "Settings"
+align = 1
+valign = 1
+
+[node name="NoiseType" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 43.0
+margin_right = 237.0
+margin_bottom = 63.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/NoiseType"]
+margin_top = 3.0
+margin_right = 37.0
+margin_bottom = 17.0
+text = "Noise"
+
+[node name="NoiseOptionButton" type="OptionButton" parent="VBoxContainer/NoiseType"]
+margin_left = 69.0
+margin_right = 173.0
+margin_bottom = 20.0
+text = "Perlin (fBm)"
+items = [ "Perlin (fBm)", null, false, 0, null, "Cellular (fBm)", null, false, 1, null, "Curl (fBm)", null, false, 2, null ]
+selected = 0
+
+[node name="Resolution" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 67.0
+margin_right = 237.0
+margin_bottom = 91.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/Resolution"]
+margin_top = 5.0
+margin_right = 80.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 80, 0 )
+hint_tooltip = "The resolution of the noise texture.
+The slice settings for importing will appear at the bottom."
+mouse_filter = 0
+text = "Resolution"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Resolution"]
+margin_left = 112.0
+margin_right = 237.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+min_value = 32.0
+max_value = 512.0
+value = 64.0
+align = 3
+
+[node name="Seed" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 95.0
+margin_right = 237.0
+margin_bottom = 119.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/Seed"]
+margin_top = 5.0
+margin_right = 80.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 80, 0 )
+hint_tooltip = "A different seed gives a different set of noise."
+mouse_filter = 0
+text = "Seed"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Seed"]
+margin_left = 112.0
+margin_right = 237.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+min_value = -100.0
+allow_greater = true
+allow_lesser = true
+align = 3
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_top = 123.0
+margin_right = 237.0
+margin_bottom = 124.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.06
+
+[node name="Period" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 128.0
+margin_right = 237.0
+margin_bottom = 152.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/Period"]
+margin_top = 5.0
+margin_right = 80.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 80, 0 )
+hint_tooltip = "How much of the noise is rendered into the texture.
+Larger period gives finer noise."
+mouse_filter = 0
+text = "Period"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Period"]
+margin_left = 112.0
+margin_right = 237.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 20.0
+value = 2.0
+align = 3
+
+[node name="Octaves" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 156.0
+margin_right = 237.0
+margin_bottom = 180.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/Octaves"]
+margin_top = 5.0
+margin_right = 80.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 80, 0 )
+hint_tooltip = "How many iterations of noise are added together."
+mouse_filter = 0
+text = "Octaves"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Octaves"]
+margin_left = 112.0
+margin_right = 237.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 10.0
+value = 3.0
+align = 3
+
+[node name="Persistence" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 184.0
+margin_right = 237.0
+margin_bottom = 208.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/Persistence"]
+margin_top = 5.0
+margin_right = 80.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 80, 0 )
+hint_tooltip = "How much each octave affects the base noise."
+mouse_filter = 0
+text = "Persistence"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Persistence"]
+margin_left = 112.0
+margin_right = 237.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.5
+align = 3
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+margin_top = 212.0
+margin_right = 237.0
+margin_bottom = 213.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Brightness" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 217.0
+margin_right = 237.0
+margin_bottom = 241.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/Brightness"]
+margin_top = 5.0
+margin_right = 80.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 80, 0 )
+hint_tooltip = "How bright the noise is."
+mouse_filter = 0
+text = "Brightness"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Brightness"]
+margin_left = 112.0
+margin_right = 237.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+align = 3
+
+[node name="Contrast" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 245.0
+margin_right = 237.0
+margin_bottom = 269.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/Contrast"]
+margin_top = 5.0
+margin_right = 80.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 80, 0 )
+hint_tooltip = "How sharp the noise is."
+mouse_filter = 0
+text = "Contrast"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Contrast"]
+margin_left = 112.0
+margin_right = 237.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+max_value = 3.0
+step = 0.01
+value = 1.0
+align = 3
+
+[node name="Control3" type="Control" parent="VBoxContainer"]
+margin_top = 273.0
+margin_right = 237.0
+margin_bottom = 275.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.06
+
+[node name="Create" type="Button" parent="VBoxContainer"]
+margin_top = 279.0
+margin_right = 237.0
+margin_bottom = 301.0
+text = "Create Texture"
+icon = SubResource( 5 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 305.0
+margin_right = 237.0
+margin_bottom = 319.0
+
+[node name="Horizontal" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_right = 123.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Horizontal Slices: 8"
+
+[node name="Vertical" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 127.0
+margin_right = 237.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Vertical Slices: 8"
+align = 2
+
+[node name="FileDialog" type="FileDialog" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 27.7012
+margin_top = 100.701
+margin_right = -20.2988
+margin_bottom = -67.2987
+rect_min_size = Vector2( 50, 50 )
+resizable = true
+dialog_hide_on_ok = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="item_selected" from="VBoxContainer/NoiseType/NoiseOptionButton" to="." method="_on_NoiseOptionButton_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/Resolution/SpinBox" to="." method="_on_value_changed" binds= [ "resolution" ]]
+[connection signal="value_changed" from="VBoxContainer/Seed/SpinBox" to="." method="_on_value_changed" binds= [ "seed" ]]
+[connection signal="value_changed" from="VBoxContainer/Period/SpinBox" to="." method="_on_value_changed" binds= [ "period" ]]
+[connection signal="value_changed" from="VBoxContainer/Octaves/SpinBox" to="." method="_on_value_changed" binds= [ "octaves" ]]
+[connection signal="value_changed" from="VBoxContainer/Persistence/SpinBox" to="." method="_on_value_changed" binds= [ "persistence" ]]
+[connection signal="value_changed" from="VBoxContainer/Brightness/SpinBox" to="." method="_on_value_changed" binds= [ "brightness" ]]
+[connection signal="value_changed" from="VBoxContainer/Contrast/SpinBox" to="." method="_on_value_changed" binds= [ "contrast" ]]
+[connection signal="pressed" from="VBoxContainer/Create" to="." method="_on_Create_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_selected"]
